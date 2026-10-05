@@ -5,8 +5,8 @@
 #include <ArduinoHttpClient.h>     // Library untuk HTTP/HTTPS Request
 
 // ================== KONFIGURASI WIFI ==================
-const char* ssid = "JP19";
-const char* password = "Jayaperkasa19";
+const char* ssid = "...";
+const char* password = "";
 
 // ================== KONFIGURASI GPS ==================
 const int RX_PIN = 16; // ESP32-S3 RX terhubung ke TX GPS
@@ -15,9 +15,9 @@ HardwareSerial GPS_Serial(1);
 TinyGPSPlus gps;
 
 // ================== API CONFIG ==================
-const char* server = "pms.sevenoceans.co.id";
-int port = 443; // Port HTTPS
-long mmsi_device = 525110643; // Set nomor MMSI di sini
+const char* server = "...";
+int port = ...; // Port HTTPS
+long mmsi_device = ....; // Set nomor MMSI di sini
 
 WiFiClientSecure wifiClient;
 HttpClient client = HttpClient(wifiClient, server, port);
@@ -107,7 +107,7 @@ void sendToAPI(long mmsi, float lat, float lon, float speed, float course) {
   client.beginRequest();
   client.post(fullApiPath);
   client.sendHeader("Content-Type", "application/json");
-  client.sendHeader("X-Secret-Key", "pmspointdirutjos123@");
+  client.sendHeader("X-Secret-Key", "....");
   client.sendHeader("Content-Length", json.length());
   client.beginBody();
   client.print(json);
