@@ -340,3 +340,7 @@ dan:
 ```cpp
 client.sendHeader("X-Secret-Key", "YOUR_SECRET_KEY");
 ```
+
+## Dokumentasi Wiring
+
+![Wiring GPS Tracker JP19](docs/images/wiring.jpg)
