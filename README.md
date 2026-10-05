@@ -343,7 +343,12 @@ client.sendHeader("X-Secret-Key", "YOUR_SECRET_KEY");
 
 ## Dokumentasi Wiring
 
-![Wiring Jadi](docs/images/Fritzing_Wiring.jpg)
-![Pengetesan JP19](docs/images/Pengetesan_JP19.jpg)
-![Fritzing Wiring](docs/images/Wiring_Jadi.jpg)
-![Penempatan GPS](docs/images/Penempatan_GPS.jpg)
+## Dokumentasi Wiring
+
+![Wiring Jadi](docs/images/Fritzing%20Wiring.jpeg)
+
+![Pengetesan JP19](docs/images/Pengetesan%20JP19.jpeg)
+
+![Fritzing Wiring](docs/images/Wiring%20Jadi.jpeg)
+
+![Penempatan GPS](docs/images/Penempatan%20GPS.jpeg)
