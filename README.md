@@ -343,4 +343,7 @@ client.sendHeader("X-Secret-Key", "YOUR_SECRET_KEY");
 
 ## Dokumentasi Wiring
 
-![Wiring GPS Tracker JP19](docs/images/wiring.jpg)
+![Wiring Jadi](docs/images/wiring.jpg)
+![Pengetesan JP19](docs/images/wiring.jpg)
+![Fritzing Wiring](docs/images/wiring.jpg)
+![Penempatan GPS](docs/images/wiring.jpg)
