@@ -45,10 +45,10 @@
 ### Kondisi Normal
 
 - Ketika WiFi dan koneksi ke Server tersedia, data GPS dapat langsung dikirim:
-
+```text
     10:00:00 → GPS A → Server ✓
     10:00:05 → GPS B → Server ✓
-
+```
 
 ### WiFi Terputus
 
