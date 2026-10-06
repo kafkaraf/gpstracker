@@ -85,3 +85,95 @@ Format JSONL tidak memengaruhi pengiriman data ke server Server. Data yang sama 
 
 ### SD Card Module
 ![SD Card Module](../docs/images/SDCardModuleText.jpeg)
+
+
+
+
+# Lampiran
+## Flow Lengkap 
+```text
+ESP32-S3 POWER ON
+       │
+       ▼
+   setup()
+       │
+       ├───────────────┐
+       ▼               ▼
+   Inisialisasi      Inisialisasi
+    MicroSD            WiFi
+       │               │
+       │               ├── Berhasil
+       │               │
+       │               └── Gagal
+       │                    │
+       │                    └── nanti reconnect
+       │
+       ▼
+  Cek MicroSD
+       │
+       ├── Tidak ada
+       │      └── sdReady = false
+       │
+       └── Ada
+              ├── cek tipe SD
+              ├── cek kapasitas
+              └── cek / buat gps_log.jsonl
+       │
+       ▼
+ Inisialisasi GPS
+ RX = GPIO16
+ TX = GPIO17
+       │
+       ▼
+      loop()
+       │
+       ▼
+ Baca data NEO-M8N
+       │
+       ▼
+ gps.encode()
+       │
+       ▼
+ GPS location valid?
+      / \
+    NO   YES
+    │     │
+    │     ▼
+    │  Cek umur data
+    │  < 3 detik?
+    │     │
+    │    YES
+    │     │
+    │     ▼
+    │  Ambil:
+    │  Latitude
+    │  Longitude
+    │  Speed
+    │  Course
+    │  Date/Time
+    │     │
+    │     ▼
+    │  BUAT JSON
+    │     │
+    │     ├───────────────┐
+    │     ▼               ▼
+    │  SIMPAN SD       CEK WiFi
+    │     │               │
+    │     │          ┌────┴────┐
+    │     │          │         │
+    │     │        ONLINE    OFFLINE
+    │     │          │         │
+    │     │          ▼         ▼
+    │     │        POST      Tidak kirim
+    │     │        PMS       ke PMS
+    │     │          │         │
+    │     │          ▼         │
+    │     │       Response     │
+    │     │          │         │
+    │     └──────────┴─────────┘
+    │                │
+    └────────────────┘
+                     │
+                     ▼
+                  LOOP LAGI
+```
