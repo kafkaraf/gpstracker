@@ -6,7 +6,7 @@
 ### MODE 1 — BACKLOG
 - Mode BACKLOG digunakan ketika MicroSD Card masih memiliki data GPS yang belum terkirim ke Server.
 - Data dikirim berdasarkan urutan waktu, yaitu data paling lama dikirim terlebih dahulu (FIFO).
-
+```text
     SD
      ↓
     Data paling lama
@@ -22,7 +22,7 @@
     ...
      ↓
     SD kosong
-
+```
 - Proses backlog terus berjalan sampai seluruh data yang tersimpan di SD berhasil dikirim dan SD menjadi kosong.
 - Jika pengiriman suatu data gagal, data tersebut tetap berada di SD dan tidak dilanjutkan ke data berikutnya.
 
@@ -30,13 +30,13 @@
 ### MODE 2 — REALTIME
 - Mode REALTIME digunakan ketika MicroSD Card sudah tidak memiliki data backlog.
 - GPS terbaru disimpan ke SD terlebih dahulu, kemudian dikirim ke Server.
-
+```text
     GPS terbaru
          ↓
         SD
          ↓
         Server
-
+```
 - Penyimpanan ke SD dilakukan terlebih dahulu agar data tetap memiliki salinan lokal apabila koneksi WiFi atau komunikasi ke Server mengalami gangguan.
 
 
@@ -54,19 +54,19 @@
 
 - Ketika WiFi atau koneksi ke Server terputus, data GPS tidak dapat dikirim ke Server.
 - Data kemudian disimpan ke MicroSD sebagai backlog:
-
+```text
     10:00:10 → GPS C → SD
     10:00:15 → GPS D → SD
     10:00:20 → GPS E → SD
     10:00:25 → GPS F → SD
-
+```
 Data C, D, E, dan F tetap tersimpan di SD sampai koneksi kembali tersedia.
 
 
 ### WiFi Kembali
 
 - Ketika koneksi kembali tersedia, sistem terlebih dahulu mengecek apakah masih terdapat data backlog di SD.
-
+```text
     10:00:30
          ↓
        Cek SD
@@ -84,18 +84,18 @@ Data C, D, E, dan F tetap tersimpan di SD sampai koneksi kembali tersedia.
       SD KOSONG
          ↓
     MODE REALTIME
-
+```
 - Data backlog dikirim berdasarkan urutan data yang paling lama terlebih dahulu.
 
 
 ### Kembali ke Mode Realtime
-
 - Setelah seluruh backlog berhasil dikirim dan SD kosong, sistem kembali menggunakan mode realtime:
 
+```text
     10:00:30 → GPS G → SD → Server ✓
     10:00:35 → GPS H → SD → Server ✓
     10:00:40 → GPS I → SD → Server ✓
-
+```
 
 ## Ringkasan Logika Sistem
 
