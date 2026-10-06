@@ -163,6 +163,10 @@ Library SD_MMC sudah tersedia pada Arduino ESP32 Core.
 
 # 6. Konfigurasi Pin
 
+## ESP32-S3 N16R8 Pinout
+
+![ESP32-S3 N16R8 Pinout](docs/images/ESP32S3_Pinout.png)
+
 Pin SDMMC didefinisikan pada bagian awal program:
 
 #define SD_CMD  38
