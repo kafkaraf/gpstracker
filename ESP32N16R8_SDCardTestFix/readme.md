@@ -446,23 +446,9 @@ docs/images/ESP32S3_N16R8_Pinout.jpg berisi gambar referensi pinout board.
 
 - - -
 
-# 20. Pinout Reference
 
-Tambahkan gambar pinout board pada repository:
 
-![ESP32-S3 N16R8 Pinout](docs/images/ESP32S3_N16R8_Pinout.jpg)
-
-Gambar digunakan sebagai referensi posisi GPIO yang digunakan oleh interface MicroSD.
-
-Pin yang digunakan:
-
-GPIO38 -> SD_CMD
-GPIO39 -> SD_CLK
-GPIO40 -> SD_DATA0
-
----
-
-# 21. Pengembangan Selanjutnya
+# 20. Pengembangan Selanjutnya
 
 Setelah pengujian MicroSD berhasil, project dapat dikembangkan menjadi data logger.
 
@@ -486,21 +472,20 @@ Dengan konfigurasi tersebut, ESP32-S3 N16R8 dapat digunakan sebagai GPS Data Log
 
 ---
 
-# 22. Status Project
+# 21. Status Project
 
 Current status:
-
-[x] SDMMC initialization
-[x] SD Card detection
-[x] Card type detection
-[x] Card size detection
-[x] Total storage detection
-[x] Used storage detection
-[x] File write test
-[x] File read test
-[ ] GPS data logging
-[ ] CSV data logging
-[ ] Automatic timestamp
-[ ] GPS + SD Card integration
+- [x] SDMMC initialization
+- [x] SD Card detection
+- [x] Card type detection
+- [x] Card size detection
+- [x] Total storage detection
+- [x] Used storage detection
+- [x] File write test
+- [x] File read test
+- [ ] GPS data logging
+- [ ] CSV data logging
+- [ ] Automatic timestamp
+- [ ] GPS + SD Card integration
 
 ---
