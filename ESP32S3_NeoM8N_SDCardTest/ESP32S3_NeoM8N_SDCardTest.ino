@@ -10,8 +10,8 @@
 #define SD_CLK  39
 #define SD_D0   40
 
-const char* ssid     = "JP19";
-const char* password = "Jayaperkasa19";
+const char* ssid     = "...";
+const char* password = "...";
 
 const int RX_PIN = 16;
 const int TX_PIN = 17;
@@ -19,9 +19,9 @@ const int TX_PIN = 17;
 HardwareSerial GPS_Serial(1);
 TinyGPSPlus gps;
 
-const char* server = "pms.sevenoceans.co.id";
-const int port = 443;
-const long mmsi_device = 525110643;
+const char* server = "...";
+const int port = ...;
+const long mmsi_device = ...;
 
 WiFiClientSecure wifiClient;
 HttpClient client = HttpClient(wifiClient, server, port);
@@ -351,7 +351,7 @@ void sendToAPI(
 
   client.sendHeader(
     "X-Secret-Key",
-    "pmspointdirutjos123@"
+    "..."
   );
 
   client.sendHeader(
