@@ -24,6 +24,7 @@ MicroSD menggunakan SDMMC 1-bit mode.
 
 ## Cara Kerja
 ![Flow GPS](../docs/images/Flow%20GPS.PNG)
+
 Data GPS disimpan setiap 5 detik apabila koordinat valid.
 
 ## Format Data
@@ -43,7 +44,6 @@ Data GPS disimpan setiap 5 detik apabila koordinat valid.
 File penyimpanan:
 - /gps_log.jsonl
 
- :
 ## Noted Format Penyimpanan
 Data GPS pada MicroSD disimpan menggunakan format JSON Lines (JSONL).
 
