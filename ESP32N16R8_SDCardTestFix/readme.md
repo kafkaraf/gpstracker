@@ -78,68 +78,37 @@ Tidak menggunakan:
 Perbedaan interface:
 
 SPI:
-
-CS
-SCK
-MOSI
-MISO
+- CS
+- SCK
+- MOSI
+- MISO
 
 SDMMC:
-
-CLK
-CMD
-DATA0
+- CLK
+- CMD
+- DATA0
 
 Konfigurasi yang digunakan pada board:
 
-GPIO38 -> SD_CMD
-GPIO39 -> SD_CLK
-GPIO40 -> SD_DATA0
+- GPIO38 -> SD_CMD
+- GPIO39 -> SD_CLK
+- GPIO40 -> SD_DATA0
 
 Mode yang digunakan:
-
-SDMMC 1-bit
-
-Mode 1-bit dipilih karena hanya menggunakan satu jalur data, yaitu DATA0.
+- SDMMC 1-bit
+- Mode 1-bit dipilih karena hanya menggunakan satu jalur data, yaitu DATA0.
 
 ---
 
 # 4. Arduino IDE Configuration
-
 Gunakan konfigurasi berikut pada Arduino IDE.
 
-Board:
-
-ESP32S3 Dev Module
-
-Recommended settings:
-
-Board:
-ESP32S3 Dev Module
-
-USB CDC On Boot:
-Enabled
-
-Flash Size:
-16MB
-
-PSRAM:
-OPI PSRAM
-
-Upload Speed:
-115200 atau sesuai kebutuhan
-
-Port:
-Sesuaikan dengan COM port ESP32-S3
-
-Contoh:
-
-COM12
-
-Serial Monitor:
-
-Baud Rate:
-115200
+- Board: ESP32S3 Dev Module
+- USB CDC On Boot: Enabled
+- Flash Size: 16MB
+- PSRAM: OPI PSRAM
+- Upload Speed: 115200 atau sesuai kebutuhan
+- Port: Sesuaikan dengan COM port ESP32-S3
 
 ---
 
@@ -166,6 +135,7 @@ Library SD_MMC sudah tersedia pada Arduino ESP32 Core.
 ## ESP32-S3 N16R8 Pinout
 
 ![ESP32-S3 N16R8 Pinout](../docs/images/ESP32S3_Pinout.png)
+
 Pin SDMMC didefinisikan pada bagian awal program:
 
 #define SD_CMD  38
@@ -173,25 +143,15 @@ Pin SDMMC didefinisikan pada bagian awal program:
 #define SD_D0   40
 
 Keterangan:
-
-SD_CMD:
-
-GPIO38 digunakan sebagai jalur command SD Card.
-
-SD_CLK:
-
-GPIO39 digunakan sebagai clock SD Card.
-
-SD_D0:
-
-GPIO40 digunakan sebagai jalur data pertama SD Card.
+- SD_CMD: GPIO38 digunakan sebagai jalur command SD Card.
+- SD_CLK: GPIO39 digunakan sebagai clock SD Card.
+- SD_D0: GPIO40 digunakan sebagai jalur data pertama SD Card.
 
 ---
 
 # 7. Inisialisasi SDMMC
 
 Pin SDMMC dikonfigurasi menggunakan:
-
 SD_MMC.setPins(
     SD_CLK,
     SD_CMD,
@@ -199,11 +159,9 @@ SD_MMC.setPins(
 );
 
 Kemudian SD Card diinisialisasi menggunakan:
-
 SD_MMC.begin("/sdcard", true)
 
 Parameter kedua bernilai true yang menunjukkan penggunaan mode 1-bit.
-
 Contoh:
 
 if (!SD_MMC.begin("/sdcard", true)) {
@@ -211,11 +169,7 @@ if (!SD_MMC.begin("/sdcard", true)) {
     return;
 }
 
-Jika proses berhasil:
-
-SD Card berhasil!
-
-akan ditampilkan pada Serial Monitor.
+- Jika proses berhasil: SD Card berhasil! akan ditampilkan pada Serial Monitor.
 
 ---
 
@@ -226,32 +180,21 @@ Program akan membaca tipe SD Card menggunakan:
 SD_MMC.cardType();
 
 Beberapa tipe yang dapat terdeteksi:
-
-MMC
-SDSC
-SDHC
-UNKNOWN
-
+- MMC
+- SDSC
+- SDHC
+- UNKNOWN
 Contoh output:
-
-Card Type: SDHC
+- Card Type: SDHC
 
 ---
 
 # 9. Membaca Kapasitas SD Card
 
 Program membaca kapasitas SD Card menggunakan:
-
-SD_MMC.cardSize();
-
-Ukuran kemudian dikonversi menjadi MB:
-
-cardSize / (1024 * 1024)
-
-Contoh output:
-
-Card Size: 30528 MB
-
+- SD_MMC.cardSize();
+- Ukuran kemudian dikonversi menjadi MB: cardSize / (1024 * 1024)
+- Contoh output: Card Size: 30528 MB
 Nilai aktual bergantung pada kapasitas MicroSD yang digunakan.
 
 ---
@@ -259,27 +202,16 @@ Nilai aktual bergantung pada kapasitas MicroSD yang digunakan.
 # 10. Membaca Total Storage
 
 Program juga membaca total storage menggunakan:
-
 SD_MMC.totalBytes();
-
-Contoh output:
-
-Total Space: 30500 MB
-
+Contoh output: Total Space: 30500 MB
 Nilai dapat sedikit berbeda dari kapasitas nominal yang tertulis pada MicroSD.
 
 ---
 
 # 11. Membaca Storage yang Digunakan
 
-Storage yang sudah digunakan dibaca menggunakan:
-
-SD_MMC.usedBytes();
-
-Contoh:
-
-Used Space: 1 MB
-
+- Storage yang sudah digunakan dibaca menggunakan: SD_MMC.usedBytes();
+- Contoh: Used Space: 1 MB
 Nilai ini akan bertambah apabila semakin banyak file yang disimpan pada MicroSD.
 
 ---
@@ -287,40 +219,28 @@ Nilai ini akan bertambah apabila semakin banyak file yang disimpan pada MicroSD.
 # 12. Write Test
 
 Program membuat atau membuka file:
-
-/test.txt
+- /test.txt
 
 File dibuka menggunakan:
-
-SD_MMC.open("/test.txt", FILE_APPEND);
-
-FILE_APPEND digunakan agar data baru ditambahkan ke bagian akhir file.
+- SD_MMC.open("/test.txt", FILE_APPEND);
+- FILE_APPEND digunakan agar data baru ditambahkan ke bagian akhir file.
 
 Data yang ditulis:
-
-Hello ESP32-S3 N16R8 CAM!
+- - - - - - - - - - - - -
+Hello ESP32-S3 N16R8 CAM
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - - 
 
-Setelah proses penulisan selesai:
-
-file.close();
-
+- Setelah proses penulisan selesai: file.close();
 digunakan untuk menutup file.
 
 ---
 
 # 13. Read Test
 
-Setelah proses write selesai, program membuka kembali:
-
-/test.txt
-
-menggunakan:
-
-SD_MMC.open("/test.txt", FILE_READ);
-
-Kemudian isi file dibaca menggunakan:
+- Setelah proses write selesai, program membuka kembali: /test.txt
+- menggunakan: SD_MMC.open("/test.txt", FILE_READ);
+- Kemudian isi file dibaca menggunakan:
 
 while (file.available()) {
     Serial.write(file.read());
@@ -329,11 +249,10 @@ while (file.available()) {
 Isi file akan ditampilkan pada Serial Monitor.
 
 Contoh:
-
-------------------------
+- - - - - - - - - - - - -
 Hello ESP32-S3 N16R8 CAM!
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - -
 
 Read berhasil!
 
@@ -391,10 +310,10 @@ Test Complete
 
 Jika MicroSD berhasil terdeteksi, output kurang lebih:
 
-================================
+= = = = = = = = = = = = = = = = =
  ESP32-S3 N16R8 CAM
  MICRO SD CARD TEST
-================================
+= = = = = = = = = = = = = = = = =
 
 Setting SDMMC pins...
 SDMMC pins OK
@@ -414,17 +333,16 @@ Write berhasil!
 
 Reading /test.txt...
 
-------------------------
+- - - - - - - - - - - - -
 Hello ESP32-S3 N16R8 CAM!
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - -
 
 Read berhasil!
 
-================================
+= = = = = = = = = = = = = = = = =
  SD CARD TEST SELESAI
-================================
-
+= = = = = = = = = = = = = = = = =
 Nilai Card Size, Total Space, dan Used Space bergantung pada kondisi dan kapasitas MicroSD yang digunakan.
 
 ---
@@ -439,7 +357,7 @@ Isi file:
 
 Hello ESP32-S3 N16R8 CAM!
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - -
 
 Karena menggunakan FILE_APPEND, data baru akan ditambahkan pada bagian akhir file setiap kali program dijalankan.
 
@@ -447,13 +365,13 @@ Contoh setelah beberapa kali program dijalankan:
 
 Hello ESP32-S3 N16R8 CAM!
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - -
 Hello ESP32-S3 N16R8 CAM!
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - -
 Hello ESP32-S3 N16R8 CAM!
 SD Card test berhasil.
-------------------------
+- - - - - - - - - - - - -
 
 ---
 
@@ -462,66 +380,46 @@ SD Card test berhasil.
 ## SD Card gagal diinisialisasi
 
 Jika muncul:
-
 Initializing SD Card...
-
 ERROR: SD Card gagal diinisialisasi!
-
 Periksa beberapa hal berikut.
 
 ### 1. Pastikan MicroSD terpasang
-
 Pastikan MicroSD sudah dimasukkan dengan benar ke slot MicroSD pada board.
 
 ### 2. Periksa format MicroSD
-
 Untuk pengujian awal, gunakan filesystem:
-
-FAT32
+- FAT32
 
 ### 3. Periksa konfigurasi pin
-
 Pastikan program menggunakan:
-
 #define SD_CMD  38
 #define SD_CLK  39
 #define SD_D0   40
 
 ### 4. Periksa mode SDMMC
-
 Pastikan menggunakan:
-
 SD_MMC.begin("/sdcard", true)
-
 Parameter true digunakan untuk mode SDMMC 1-bit.
 
 ### 5. Coba MicroSD lain
-
 Jika board tidak dapat membaca kartu, coba menggunakan MicroSD lain yang sudah dipastikan berfungsi.
-
 ---
 
 # 18. SD Card Tidak Menggunakan GPIO CS
-
 Pada konfigurasi SDMMC 1-bit ini tidak digunakan pin CS seperti pada komunikasi SPI.
-
 Karena itu tidak diperlukan konfigurasi seperti:
-
 #define SD_CS 1
 
 Konfigurasi SDMMC menggunakan:
-
-GPIO38 -> CMD
-GPIO39 -> CLK
-GPIO40 -> DATA0
-
+- GPIO38 -> CMD
+- GPIO39 -> CLK
+- GPIO40 -> DATA0
 Jangan menggunakan konfigurasi SPI berikut untuk MicroSD onboard:
-
-CS
-SCK
-MOSI
-MISO
-
+- CS
+- SCK
+- MOSI
+- MISO
 Konfigurasi tersebut digunakan untuk SD Card yang terhubung sebagai perangkat SPI eksternal.
 
 ---
@@ -529,7 +427,6 @@ Konfigurasi tersebut digunakan untuk SD Card yang terhubung sebagai perangkat SP
 # 19. Struktur Repository
 
 Struktur repository yang disarankan:
-
 ESP32S3-N16R8-MicroSD/
 |
 |-- README.md
@@ -547,7 +444,7 @@ src/ESP32S3_SDCard.ino berisi program utama.
 
 docs/images/ESP32S3_N16R8_Pinout.jpg berisi gambar referensi pinout board.
 
----
+- - -
 
 # 20. Pinout Reference
 
@@ -589,59 +486,7 @@ Dengan konfigurasi tersebut, ESP32-S3 N16R8 dapat digunakan sebagai GPS Data Log
 
 ---
 
-# 22. Hardware Configuration Summary
-
-Board:
-
-ESP32-S3 N16R8 Camera Module
-
-Flash:
-
-16 MB
-
-PSRAM:
-
-8 MB OPI
-
-Storage:
-
-Onboard MicroSD
-
-Interface:
-
-SDMMC
-
-Mode:
-
-1-bit
-
-SD_CMD:
-
-GPIO38
-
-SD_CLK:
-
-GPIO39
-
-SD_DATA0:
-
-GPIO40
-
-Library:
-
-SD_MMC.h
-
-Filesystem:
-
-FAT32
-
-Serial Monitor:
-
-115200 baud
-
----
-
-# 23. Status Project
+# 22. Status Project
 
 Current status:
 
@@ -659,25 +504,3 @@ Current status:
 [ ] GPS + SD Card integration
 
 ---
-
-# 24. Conclusion
-
-Project ini berhasil melakukan pengujian dasar MicroSD Card onboard pada ESP32-S3 N16R8 Camera Module menggunakan interface SDMMC 1-bit.
-
-Konfigurasi utama yang digunakan:
-
-GPIO38 -> SD_CMD
-GPIO39 -> SD_CLK
-GPIO40 -> SD_DATA0
-
-Library:
-
-SD_MMC.h
-
-Mode:
-
-SDMMC 1-bit
-
-Pengujian meliputi deteksi kartu, pembacaan kapasitas, penulisan file, dan pembacaan file.
-
-Project selanjutnya dapat dikembangkan untuk menyimpan data GPS, sensor, maupun data telemetry secara lokal ke MicroSD.
