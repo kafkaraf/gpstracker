@@ -230,52 +230,9 @@ Read berhasil!
 ---
 
 # 14. Program Flow
-
 Alur program:
 
-ESP32-S3 Start
-|
-v
-Serial Initialization
-|
-v
-Set SDMMC Pins
-|
-|-- GPIO38 -> SD_CMD
-|-- GPIO39 -> SD_CLK
-`-- GPIO40 -> SD_DATA0
-|
-v
-Initialize SD Card
-|
-+-- FAIL
-|   |
-|   `-- Print Error
-|
-`-- SUCCESS
-    |
-    v
-Detect Card Type
-    |
-    v
-Read Card Size
-    |
-    v
-Read Total Space
-    |
-    v
-Read Used Space
-    |
-    v
-Write /test.txt
-    |
-    v
-Read /test.txt
-    |
-    v
-Test Complete
 
----
 
 # 15. Expected Serial Monitor
 
