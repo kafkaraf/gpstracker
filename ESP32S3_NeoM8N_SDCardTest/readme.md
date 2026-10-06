@@ -44,7 +44,7 @@ MicroSD menggunakan SDMMC 1-bit mode.
                                │
                                ▼
                          ┌───────────┐
-                         │    PMS    │
+                         │   Server  │
                          └───────────┘
 ```
 
