@@ -101,17 +101,13 @@ Gunakan konfigurasi berikut pada Arduino IDE.
 # 5. Library
 
 Library utama yang digunakan:
-
-Arduino.h
-SD_MMC.h
+- Arduino.h
+- SD_MMC.h
 
 Include:
-
-#include <Arduino.h>
-#include <SD_MMC.h>
-
+- #include <Arduino.h>
+- #include <SD_MMC.h>
 Tidak diperlukan library tambahan untuk komunikasi SD Card.
-
 Library SD_MMC sudah tersedia pada Arduino ESP32 Core.
 
 ---
@@ -123,10 +119,9 @@ Library SD_MMC sudah tersedia pada Arduino ESP32 Core.
 ![ESP32-S3 N16R8 Pinout](../docs/images/ESP32S3_Pinout.png)
 
 Pin SDMMC didefinisikan pada bagian awal program:
-
-#define SD_CMD  38
-#define SD_CLK  39
-#define SD_D0   40
+- #define SD_CMD  38
+- #define SD_CLK  39
+- #define SD_D0   40
 
 Keterangan:
 - SD_CMD: GPIO38 digunakan sebagai jalur command SD Card.
@@ -136,40 +131,29 @@ Keterangan:
 ---
 
 # 7. Inisialisasi SDMMC
-
-Pin SDMMC dikonfigurasi menggunakan:
-SD_MMC.setPins(
-    SD_CLK,
-    SD_CMD,
-    SD_D0
-);
+Pin SDMMC dikonfigurasi menggunakan: 
+- SD_MMC.setPins(SD_CLK,SD_CMD,SD_D0);
 
 Kemudian SD Card diinisialisasi menggunakan:
-SD_MMC.begin("/sdcard", true)
+- SD_MMC.begin("/sdcard", true)
 
 Parameter kedua bernilai true yang menunjukkan penggunaan mode 1-bit.
 Contoh:
-
-if (!SD_MMC.begin("/sdcard", true)) {
-    Serial.println("ERROR: SD Card gagal diinisialisasi!");
-    return;
-}
-
+- if (!SD_MMC.begin("/sdcard", true)) {Serial.println("ERROR: SD Card gagal diinisialisasi!"); return;}
 - Jika proses berhasil: SD Card berhasil! akan ditampilkan pada Serial Monitor.
 
 ---
 
 # 8. Deteksi Tipe SD Card
-
 Program akan membaca tipe SD Card menggunakan:
-
-SD_MMC.cardType();
+- SD_MMC.cardType();
 
 Beberapa tipe yang dapat terdeteksi:
 - MMC
 - SDSC
 - SDHC
 - UNKNOWN
+
 Contoh output:
 - Card Type: SDHC
 
@@ -188,9 +172,10 @@ Nilai aktual bergantung pada kapasitas MicroSD yang digunakan.
 # 10. Membaca Total Storage
 
 Program juga membaca total storage menggunakan:
-SD_MMC.totalBytes();
-Contoh output: Total Space: 30500 MB
-Nilai dapat sedikit berbeda dari kapasitas nominal yang tertulis pada MicroSD.
+- SD_MMC.totalBytes();
+Contoh output:
+- Total Space: 30500 MB
+- Nilai dapat sedikit berbeda dari kapasitas nominal yang tertulis pada MicroSD.
 
 ---
 
