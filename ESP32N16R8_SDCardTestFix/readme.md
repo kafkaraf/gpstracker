@@ -34,9 +34,7 @@ Program melakukan beberapa pengujian:
 
 Pada board ESP32-S3 N16R8 Camera Module, slot MicroSD menggunakan interface SDMMC.
 
-Project ini menggunakan mode:
-
-SDMMC 1-bit
+Project ini menggunakan mode: SDMMC 1-bit
 
 Konfigurasi pin yang digunakan:
 
@@ -56,14 +54,12 @@ MicroSD cukup dimasukkan ke slot MicroSD yang tersedia pada board.
 
 Pada project ini digunakan interface SDMMC, bukan SPI.
 
-Library yang digunakan:
-
-#include <SD_MMC.h>
+Library yang digunakan: 
+- #include <SD_MMC.h>
 
 Tidak menggunakan:
-
-#include <SD.h>
-#include <SPI.h>
+- #include <SD.h>
+- #include <SPI.h>
 
 Perbedaan interface:
 
