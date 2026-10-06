@@ -46,18 +46,8 @@ Konfigurasi pin yang digunakan:
 | SD_CLK         | GPIO39        |
 | SD_DATA0       | GPIO40        |
 
-Diagram koneksi:
-
-ESP32-S3 N16R8
-|
-|-- GPIO38 -> SD_CMD
-|
-|-- GPIO39 -> SD_CLK
-|
-`-- GPIO40 -> SD_DATA0
 
 Karena MicroSD sudah tersedia pada board, tidak diperlukan wiring eksternal.
-
 MicroSD cukup dimasukkan ke slot MicroSD yang tersedia pada board.
 
 ---
