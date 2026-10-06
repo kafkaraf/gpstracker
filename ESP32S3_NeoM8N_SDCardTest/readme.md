@@ -1,9 +1,9 @@
 # ESP32-S3 N16R8 GPS Tracker + MicroSD
-Project GPS Tracker menggunakan ESP32-S3 N16R8, NEO-M8N, WiFi, PMS API, dan MicroSD onboard.
+Project GPS Tracker menggunakan ESP32-S3 N16R8, NEO-M8N, WiFi, Server API, dan MicroSD onboard.
 
 ## Fitur
 - Membaca koordinat dari NEO-M8N
-- Mengirim data GPS ke PMS setiap 5 detik
+- Mengirim data GPS ke Server setiap 5 detik
 - Menyimpan data GPS ke MicroSD
 - Data tetap tersimpan saat WiFi terputus
 - Format log menggunakan JSON Lines (.jsonl)
@@ -54,7 +54,7 @@ Contoh:
 - {"mmsi":"525110643","latitude":-6.057920,"longitude":106.680910,"speed":5.30,"course":182.50,"datetime":"2026-10-06 08:26:40"}
 Penggunaan JSONL hanya berlaku untuk penyimpanan data pada MicroSD sebagai log lokal.
 
-Format JSONL tidak memengaruhi pengiriman data ke server PMS. Data yang sama tetap dibuat menjadi JSON payload dan dikirim menggunakan HTTP POST ke API PMS.
+Format JSONL tidak memengaruhi pengiriman data ke server Server. Data yang sama tetap dibuat menjadi JSON payload dan dikirim menggunakan HTTP POST ke API Server.
 
 ### SD Card Module
 ![SD Card Module](../docs/images/SDCardModuleText.jpeg)
