@@ -22,6 +22,33 @@ Project GPS Tracker menggunakan ESP32-S3 N16R8, NEO-M8N, WiFi, Server API, dan M
 - SDMMC D0  -> GPIO 40
 MicroSD menggunakan SDMMC 1-bit mode.
 
+## Flow Simulasi ESP32S3 sampai ke Server
+```text
+              ┌───────────────┐
+              │   GPS NEO-M8N │
+              └───────┬───────┘
+                      │
+                      ▼
+                ┌───────────┐
+                │  ESP32-S3 │
+                └─────┬─────┘
+                      │
+               GPS valid
+                      │
+             ┌────────┴────────┐
+             ▼                 ▼
+       ┌──────────┐       ┌──────────┐
+       │ MicroSD  │       │   WiFi   │
+       │  JSONL   │       │  HTTPS   │
+       └──────────┘       └────┬─────┘
+                               │
+                               ▼
+                         ┌───────────┐
+                         │    PMS    │
+                         └───────────┘
+```
+
+
 ## Cara Kerja
 ![Flow GPS](../docs/images/Flow%20GPS.PNG)
 
