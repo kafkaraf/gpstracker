@@ -23,7 +23,7 @@ Project GPS Tracker menggunakan ESP32-S3 N16R8, NEO-M8N, WiFi, PMS API, dan Micr
 MicroSD menggunakan SDMMC 1-bit mode.
 
 ## Cara Kerja
-
+![Flow GPS](../docs/images/Flow%20GPS.PNG)
 Data GPS disimpan setiap 5 detik apabila koordinat valid.
 
 ## Format Data
@@ -36,5 +36,25 @@ Data GPS disimpan setiap 5 detik apabila koordinat valid.
   "datetime": "2026-10-06 08:26:35"
 }
 
+### Serial Monitor
+
+![Serial Monitor](../docs/images/SerialMonitor.jpeg)
+
 File penyimpanan:
 - /gps_log.jsonl
+
+ :
+## Noted Format Penyimpanan
+Data GPS pada MicroSD disimpan menggunakan format JSON Lines (JSONL).
+
+JSONL dipilih karena GPS melakukan pencatatan data secara berkala setiap 5 detik. Setiap data GPS disimpan sebagai satu baris JSON baru, sehingga data dapat ditambahkan (append) tanpa harus membaca atau menulis ulang seluruh file.
+
+Contoh:
+- {"mmsi":"525110643","latitude":-6.057910,"longitude":106.680896,"speed":5.25,"course":182.40,"datetime":"2026-10-06 08:26:35"}
+- {"mmsi":"525110643","latitude":-6.057920,"longitude":106.680910,"speed":5.30,"course":182.50,"datetime":"2026-10-06 08:26:40"}
+Penggunaan JSONL hanya berlaku untuk penyimpanan data pada MicroSD sebagai log lokal.
+
+Format JSONL tidak memengaruhi pengiriman data ke server PMS. Data yang sama tetap dibuat menjadi JSON payload dan dikirim menggunakan HTTP POST ke API PMS.
+
+### SD Card Module
+![SD Card Module](../docs/images/SDCardModuleText.jpeg)
