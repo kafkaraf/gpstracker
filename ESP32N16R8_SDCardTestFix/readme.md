@@ -347,35 +347,7 @@ Nilai Card Size, Total Space, dan Used Space bergantung pada kondisi dan kapasit
 
 ---
 
-# 16. File yang Dibuat
-
-Program akan membuat file:
-
-/test.txt
-
-Isi file:
-
-Hello ESP32-S3 N16R8 CAM!
-SD Card test berhasil.
-- - - - - - - - - - - - -
-
-Karena menggunakan FILE_APPEND, data baru akan ditambahkan pada bagian akhir file setiap kali program dijalankan.
-
-Contoh setelah beberapa kali program dijalankan:
-
-Hello ESP32-S3 N16R8 CAM!
-SD Card test berhasil.
-- - - - - - - - - - - - -
-Hello ESP32-S3 N16R8 CAM!
-SD Card test berhasil.
-- - - - - - - - - - - - -
-Hello ESP32-S3 N16R8 CAM!
-SD Card test berhasil.
-- - - - - - - - - - - - -
-
----
-
-# 17. Troubleshooting
+# 16. Troubleshooting
 
 ## SD Card gagal diinisialisasi
 
@@ -406,49 +378,7 @@ Parameter true digunakan untuk mode SDMMC 1-bit.
 Jika board tidak dapat membaca kartu, coba menggunakan MicroSD lain yang sudah dipastikan berfungsi.
 ---
 
-# 18. SD Card Tidak Menggunakan GPIO CS
-Pada konfigurasi SDMMC 1-bit ini tidak digunakan pin CS seperti pada komunikasi SPI.
-Karena itu tidak diperlukan konfigurasi seperti:
-#define SD_CS 1
-
-Konfigurasi SDMMC menggunakan:
-- GPIO38 -> CMD
-- GPIO39 -> CLK
-- GPIO40 -> DATA0
-Jangan menggunakan konfigurasi SPI berikut untuk MicroSD onboard:
-- CS
-- SCK
-- MOSI
-- MISO
-Konfigurasi tersebut digunakan untuk SD Card yang terhubung sebagai perangkat SPI eksternal.
-
----
-
-# 19. Struktur Repository
-
-Struktur repository yang disarankan:
-ESP32S3-N16R8-MicroSD/
-|
-|-- README.md
-|
-|-- src/
-|   `-- ESP32S3_SDCard.ino
-|
-`-- docs/
-    `-- images/
-        `-- ESP32S3_N16R8_Pinout.jpg
-
-README.md berisi dokumentasi project.
-
-src/ESP32S3_SDCard.ino berisi program utama.
-
-docs/images/ESP32S3_N16R8_Pinout.jpg berisi gambar referensi pinout board.
-
-- - -
-
-
-
-# 20. Pengembangan Selanjutnya
+# 17. Pengembangan Selanjutnya
 
 Setelah pengujian MicroSD berhasil, project dapat dikembangkan menjadi data logger.
 
@@ -472,7 +402,7 @@ Dengan konfigurasi tersebut, ESP32-S3 N16R8 dapat digunakan sebagai GPS Data Log
 
 ---
 
-# 21. Status Project
+# 18. Status Project
 
 Current status:
 - [x] SDMMC initialization
