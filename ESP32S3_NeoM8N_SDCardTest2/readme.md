@@ -1,14 +1,11 @@
 ## Flow Pengiriman Data GPS (Untested)
-
-Sistem memiliki 2 mode pengiriman data, yaitu MODE BACKLOG dan MODE REALTIME.
-
-Mode yang digunakan ditentukan berdasarkan apakah masih terdapat data GPS yang belum berhasil dikirim ke Server.
+- Ini merupakan kode program lanjutan dari ESP32S3_NeoM8N_SDCardTest.ino tetapi versi yang diperbaiki dengan menambahkan sistem antrian pada pengiriman ke servernya
+- Sistem memiliki 2 mode pengiriman data, yaitu MODE BACKLOG dan MODE REALTIME.
+- Mode yang digunakan ditentukan berdasarkan apakah masih terdapat data GPS yang belum berhasil dikirim ke Server.
 
 ### MODE 1 — BACKLOG
-
-Mode BACKLOG digunakan ketika MicroSD Card masih memiliki data GPS yang belum terkirim ke Server.
-
-Data dikirim berdasarkan urutan waktu, yaitu data paling lama dikirim terlebih dahulu (FIFO).
+- Mode BACKLOG digunakan ketika MicroSD Card masih memiliki data GPS yang belum terkirim ke Server.
+- Data dikirim berdasarkan urutan waktu, yaitu data paling lama dikirim terlebih dahulu (FIFO).
 
     SD
      ↓
@@ -26,16 +23,13 @@ Data dikirim berdasarkan urutan waktu, yaitu data paling lama dikirim terlebih d
      ↓
     SD kosong
 
-Proses backlog terus berjalan sampai seluruh data yang tersimpan di SD berhasil dikirim dan SD menjadi kosong.
-
-Jika pengiriman suatu data gagal, data tersebut tetap berada di SD dan tidak dilanjutkan ke data berikutnya.
+- Proses backlog terus berjalan sampai seluruh data yang tersimpan di SD berhasil dikirim dan SD menjadi kosong.
+- Jika pengiriman suatu data gagal, data tersebut tetap berada di SD dan tidak dilanjutkan ke data berikutnya.
 
 
 ### MODE 2 — REALTIME
-
-Mode REALTIME digunakan ketika MicroSD Card sudah tidak memiliki data backlog.
-
-GPS terbaru disimpan ke SD terlebih dahulu, kemudian dikirim ke Server.
+- Mode REALTIME digunakan ketika MicroSD Card sudah tidak memiliki data backlog.
+- GPS terbaru disimpan ke SD terlebih dahulu, kemudian dikirim ke Server.
 
     GPS terbaru
          ↓
@@ -43,14 +37,14 @@ GPS terbaru disimpan ke SD terlebih dahulu, kemudian dikirim ke Server.
          ↓
         Server
 
-Penyimpanan ke SD dilakukan terlebih dahulu agar data tetap memiliki salinan lokal apabila koneksi WiFi atau komunikasi ke Server mengalami gangguan.
+- Penyimpanan ke SD dilakukan terlebih dahulu agar data tetap memiliki salinan lokal apabila koneksi WiFi atau komunikasi ke Server mengalami gangguan.
 
 
 ## Contoh Flow Lengkap
 
 ### Kondisi Normal
 
-Ketika WiFi dan koneksi ke Server tersedia, data GPS dapat langsung dikirim:
+- Ketika WiFi dan koneksi ke Server tersedia, data GPS dapat langsung dikirim:
 
     10:00:00 → GPS A → Server ✓
     10:00:05 → GPS B → Server ✓
@@ -58,9 +52,8 @@ Ketika WiFi dan koneksi ke Server tersedia, data GPS dapat langsung dikirim:
 
 ### WiFi Terputus
 
-Ketika WiFi atau koneksi ke Server terputus, data GPS tidak dapat dikirim ke Server.
-
-Data kemudian disimpan ke MicroSD sebagai backlog:
+- Ketika WiFi atau koneksi ke Server terputus, data GPS tidak dapat dikirim ke Server.
+- Data kemudian disimpan ke MicroSD sebagai backlog:
 
     10:00:10 → GPS C → SD
     10:00:15 → GPS D → SD
@@ -72,7 +65,7 @@ Data C, D, E, dan F tetap tersimpan di SD sampai koneksi kembali tersedia.
 
 ### WiFi Kembali
 
-Ketika koneksi kembali tersedia, sistem terlebih dahulu mengecek apakah masih terdapat data backlog di SD.
+- Ketika koneksi kembali tersedia, sistem terlebih dahulu mengecek apakah masih terdapat data backlog di SD.
 
     10:00:30
          ↓
@@ -92,12 +85,12 @@ Ketika koneksi kembali tersedia, sistem terlebih dahulu mengecek apakah masih te
          ↓
     MODE REALTIME
 
-Data backlog dikirim berdasarkan urutan data yang paling lama terlebih dahulu.
+- Data backlog dikirim berdasarkan urutan data yang paling lama terlebih dahulu.
 
 
 ### Kembali ke Mode Realtime
 
-Setelah seluruh backlog berhasil dikirim dan SD kosong, sistem kembali menggunakan mode realtime:
+- Setelah seluruh backlog berhasil dikirim dan SD kosong, sistem kembali menggunakan mode realtime:
 
     10:00:30 → GPS G → SD → Server ✓
     10:00:35 → GPS H → SD → Server ✓
