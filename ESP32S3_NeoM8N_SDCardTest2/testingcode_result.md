@@ -11,6 +11,9 @@
 - Jika API gagal: Data yang gagal dikirim tidak dilewati dan akan dicoba kembali.
 - Datetime: Waktu pada data menggunakan waktu GPS dari NEO-M8N, sehingga data backlog tetap membawa waktu saat data GPS direkam.
 
+Noted : 
+- Untuk pengetesan di kapal itu akan mengset 15 menit update realtimnya
+
 ## Hasil Pengujian
 
 Pengujian dilakukan pada GPS Tracker menggunakan ESP32-S3, NEO-M8N, MicroSD, WiFi, dan API PMS.
