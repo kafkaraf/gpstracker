@@ -61,15 +61,15 @@ Masalah ini terutama terjadi ketika data lama yang tersimpan di MicroSD baru dik
 ESP32 sudah mengirimkan `datetime` GPS dalam JSON payload.
 
 Server seharusnya menggunakan nilai `datetime` dari request:
-
+```text
 'datetime' => $request->datetime,
-
+```
 Atau menggunakan fallback:
 
 'datetime' => $request->datetime ?? Carbon::now(),
 
 Dengan demikian:
-
+```text
 GPS Datetime
      |
      +----> MicroSD
@@ -78,7 +78,7 @@ GPS Datetime
               |
               v
         Website PMS
-
+```
 Datetime tetap sinkron.
 
 ## Status Pengujian
