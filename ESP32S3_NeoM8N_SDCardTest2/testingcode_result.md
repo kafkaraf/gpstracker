@@ -83,14 +83,14 @@ Datetime tetap sinkron.
 
 ## Status Pengujian
 
-GPS Reading      : PASS
-MicroSD Logging  : PASS
-JSONL Logging    : PASS
-WiFi             : PASS
-API Transmission : PASS
-Website Display  : PASS
-Datetime Sync    : ISSUE FOUND
-Server Fix       : REQUIRED
+- GPS Reading      : PASS
+- MicroSD Logging  : PASS
+- JSONL Logging    : PASS
+- WiFi             : PASS
+- API Transmission : PASS
+- Website Display  : PASS
+- Datetime Sync    : ISSUE FOUND
+- Server Fix       : REQUIRED
 
 ## Kesimpulan
 
