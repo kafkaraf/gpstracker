@@ -16,7 +16,7 @@
 Pengujian dilakukan pada GPS Tracker menggunakan ESP32-S3, NEO-M8N, MicroSD, WiFi, dan API PMS.
 
 Alur sistem:
-
+```text
 GPS NEO-M8N
      |
      v
@@ -31,7 +31,7 @@ ESP32-S3
                  |
                  v
             Website PMS
-
+```
 Data GPS tetap disimpan ke MicroSD ketika koneksi internet tidak tersedia.
 Ketika koneksi tersedia, data dapat dikirim ke API.
 
@@ -40,22 +40,22 @@ Ketika koneksi tersedia, data dapat dikirim ke API.
 Data `datetime` pada MicroSD menggunakan waktu dari GPS NEO-M8N.
 
 Contoh:
-
+```text
 MicroSD:
 2026-10-07 07:15:32
-
+```
 Namun pada server ditemukan konfigurasi:
-
+```text
 'datetime' => Carbon::now(),
 
 `Carbon::now()` menyebabkan server menggunakan waktu saat data diterima/diproses, bukan waktu saat data GPS direkam.
-
+```
 Akibatnya:
-
+```text
 MicroSD datetime != Website PMS datetime
 
 Masalah ini terutama terjadi ketika data lama yang tersimpan di MicroSD baru dikirim ke server setelah koneksi internet tersedia.
-
+```
 ## Perbaikan
 
 ESP32 sudah mengirimkan `datetime` GPS dalam JSON payload.
