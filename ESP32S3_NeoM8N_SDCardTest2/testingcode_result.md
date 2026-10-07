@@ -1,5 +1,16 @@
 # Testing Code Result - GPS Tracker NEO-M8N
 
+## Informasi Singkat
+- Penyimpanan GPS: Data GPS disimpan ke MicroSD setiap 5 detik.
+- Backlog: Jika masih ada data di MicroSD yang belum terkirim, sistem mengirim 1 data setiap ±3 detik.
+- Urutan Backlog: Data dikirim berdasarkan urutan data paling lama → data berikutnya → sampai backlog habis.
+- Validasi Pengiriman: Data baru dianggap terkirim jika API memberikan response HTTP 2xx.
+- Jika WiFi mati: Data GPS tetap disimpan ke MicroSD dan tidak hilang.
+- Jika WiFi mati 5 hari: Data selama 5 hari akan menjadi backlog di MicroSD. Setelah WiFi kembali, sistem akan mengirim backlog tersebut bertahap, bukan langsung sekaligus.
+- Setelah Backlog Habis: Sistem kembali mengirim data GPS terbaru secara realtime.
+- Jika API gagal: Data yang gagal dikirim tidak dilewati dan akan dicoba kembali.
+- Datetime: Waktu pada data menggunakan waktu GPS dari NEO-M8N, sehingga data backlog tetap membawa waktu saat data GPS direkam.
+
 ## Hasil Pengujian
 
 Pengujian dilakukan pada GPS Tracker menggunakan ESP32-S3, NEO-M8N, MicroSD, WiFi, dan API PMS.
@@ -83,8 +94,6 @@ Server Fix       : REQUIRED
 
 ## Kesimpulan
 
-Masalah `datetime` bukan berasal dari ESP32. ESP32 sudah mengirimkan waktu GPS pada payload API.
-
-Masalah berada pada backend server yang mengganti `datetime` dengan `Carbon::now()`.
-
-Perbaikan perlu dilakukan pada API agar menggunakan `datetime` dari data GPS sehingga timestamp pada MicroSD dan website PMS tetap sinkron.
+- Masalah `datetime` bukan berasal dari ESP32. ESP32 sudah mengirimkan waktu GPS pada payload API.
+- Masalah berada pada backend server yang mengganti `datetime` dengan `Carbon::now()`.
+- Perbaikan perlu dilakukan pada API agar menggunakan `datetime` dari data GPS sehingga timestamp pada MicroSD dan website PMS tetap sinkron.
