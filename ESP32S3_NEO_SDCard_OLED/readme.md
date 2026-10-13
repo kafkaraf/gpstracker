@@ -71,8 +71,8 @@ Library `WiFi`, `WiFiClientSecure`, `Wire`, dan `SD_MMC` tersedia melalui dukung
 - Versi ini belum menerapkan mekanisme pengiriman backlog MicroSD secara berurutan.
 
 ## Dokumentasi Project
-![Circuit_GPS_Tracker](.../docs/images/Circuit_GPS_Tracker.PNG)
+![Circuit_GPS_Tracker](../docs/images/Circuit_GPS_Tracker.PNG)
 
-![Dokuemntasi_GPS_TrackerOLED](.../docs/images/Dokuemntasi_GPS_TrackerOLED.jpeg)
+![Dokuemntasi_GPS_TrackerOLED](../docs/images/Dokuemntasi_GPS_TrackerOLED.jpeg)
 
-![Dokuemntasi_GPS_TrackerOLED2](.../docs/images/Dokuemntasi_GPS_TrackerOLED2.jpeg)
+![Dokuemntasi_GPS_TrackerOLED2](../docs/images/Dokuemntasi_GPS_TrackerOLED2.jpeg)
