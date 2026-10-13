@@ -69,3 +69,8 @@ Library `WiFi`, `WiFiClientSecure`, `Wire`, dan `SD_MMC` tersedia melalui dukung
 - Data GPS disimpan ke MicroSD setiap kali data valid diproses.
 - Pengiriman data ke PMS memerlukan koneksi internet.
 - Versi ini belum menerapkan mekanisme pengiriman backlog MicroSD secara berurutan.
+
+## Dokumentasi Project
+![Circuit GPS Tracker](../docs/images/Circuit GPS Tracker.PNG)
+![Dokuemntasi GPS TrackerOLED](../docs/images/Dokuemntasi GPS TrackerOLED.jpeg)
+![Dokuemntasi GPS TrackerOLED2](../docs/images/Dokuemntasi GPS TrackerOLED2.jpeg)
