@@ -343,8 +343,6 @@ client.sendHeader("X-Secret-Key", "YOUR_SECRET_KEY");
 
 ## Dokumentasi Wiring
 
-## Dokumentasi Wiring
-
 ![Wiring Jadi](docs/images/Fritzing%20Wiring.jpeg)
 
 ![Pengetesan JP19](docs/images/Pengetesan%20JP19.jpeg)
