@@ -72,8 +72,8 @@ Library `WiFi`, `WiFiClientSecure`, `Wire`, dan `SD_MMC` tersedia melalui dukung
 
 ## Dokumentasi Project
 
-![Circuit GPS Tracker](docs/images/Circuit_GPS_Tracker.PNG)
+![Circuit GPS Tracker](,,/docs/images/Circuit_GPS_Tracker.PNG)
 
-![Dokumentasi GPS Tracker OLED](docs/images/Dokuemntasi_GPS_TrackerOLED.jpeg)
+![Dokumentasi GPS Tracker OLED](../docs/images/Dokuemntasi_GPS_TrackerOLED.jpeg)
 
-![Dokumentasi GPS Tracker OLED 2](docs/images/Dokuemntasi_GPS_TrackerOLED2.jpeg)
+![Dokumentasi GPS Tracker OLED 2](../docs/images/Dokuemntasi_GPS_TrackerOLED2.jpeg)
