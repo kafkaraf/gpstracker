@@ -43,6 +43,8 @@ GPS Tracking / Monitoring Kapal
 
 ### 1. ESP32-S3
 
+![ESP32-S3 N16R8 Pinout](docs/images/ESP32S3_Pinout.png)
+
 ESP32-S3 digunakan sebagai mikrokontroler utama yang bertugas untuk:
 
 * Membaca data GPS
